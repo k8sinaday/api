@@ -1,0 +1,17 @@
+version: "3.5"
+services:
+  api:
+    build:
+      context: ./
+    image: k8sinaday_api:1.0.0
+    container_name: api
+    environment:
+      MONGO_URI: mongodb://mongodb:27017/k8sinaday
+    networks:
+      - k8sinaday
+    ports:
+      - "9000:9000"
+    
+networks:
+  k8sinaday:
+    name: k8sinaday
